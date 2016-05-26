@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IDiagram NodeId="1" ParentId="0" DiagramIndex="0">
+  <IDataAccessor NodeId="3" ParentId="1">
+    <Name>x</Name>
+    <Direction>INPUT</Direction>
+    <OutputTerminals>
+      <ITerminal TerminalId="2" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="0" NodeId="2"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IDataAccessor>
+  <IMethodCall NodeId="2" ParentId="1">
+    <TargetName>:Project:USRP:FPGA\ IP:increment\.gvi</TargetName>
+    <SubVI NodeId="2" ParentId="1">
+      <Pair TerminalId="0" SubVIDataAccessorId="3"/>
+      <Pair TerminalId="1" SubVIDataAccessorId="5"/>
+    </SubVI>
+    <InputTerminals>
+      <ITerminal TerminalId="0" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="2" NodeId="3"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="1" TerminalIndex="1">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="3" NodeId="4"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IMethodCall>
+  <IDataAccessor NodeId="4" ParentId="1">
+    <Name>y</Name>
+    <Direction>OUTPUT</Direction>
+    <InputTerminals>
+      <ITerminal TerminalId="3" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="1" NodeId="2"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+  </IDataAccessor>
+</IDiagram>

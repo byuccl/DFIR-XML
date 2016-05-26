@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IDiagram NodeId="1" ParentId="0" DiagramIndex="0">
+  <IConstant NodeId="21" ParentId="1">
+    <Value>0</Value>
+    <IDataType>
+      <ISignedInt>
+        <WordLength>32</WordLength>
+      </ISignedInt>
+    </IDataType>
+    <OutputTerminals>
+      <ITerminal TerminalId="31" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="7" NodeId="8"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IConstant>
+  <IDataAccessor NodeId="22" ParentId="1">
+    <Name>loop_count</Name>
+    <Direction>INPUT</Direction>
+    <OutputTerminals>
+      <ITerminal TerminalId="32" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="1" NodeId="5"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IDataAccessor>
+  <IForLoop NodeId="2" ParentId="1">
+    <ILoopIndex NodeId="4" ParentId="2">
+      <OutputTerminals>
+        <ITerminal TerminalId="0" TerminalIndex="0">
+          <IDataType>
+            <ISignedInt>
+              <WordLength>32</WordLength>
+            </ISignedInt>
+          </IDataType>
+          <Connections/>
+        </ITerminal>
+      </OutputTerminals>
+    </ILoopIndex>
+    <ILoopMax NodeId="5" ParentId="2">
+      <InputTerminals>
+        <ITerminal TerminalId="1" TerminalIndex="0">
+          <IDataType>
+            <ISignedInt>
+              <WordLength>32</WordLength>
+            </ISignedInt>
+          </IDataType>
+          <Connections>
+            <Connection TerminalId="32" NodeId="22"/>
+          </Connections>
+        </ITerminal>
+      </InputTerminals>
+      <OutputTerminals>
+        <ITerminal TerminalId="2" TerminalIndex="1">
+          <IDataType>
+            <ISignedInt>
+              <WordLength>32</WordLength>
+            </ISignedInt>
+          </IDataType>
+          <Connections>
+            <Connection TerminalId="18" NodeId="15"/>
+          </Connections>
+        </ITerminal>
+      </OutputTerminals>
+    </ILoopMax>
+    <ITunnel NodeId="6" ParentId="2">
+      <IsInput>False</IsInput>
+      <GetInnerTerminal TerminalId="4"/>
+      <GetOuterTerminal TerminalId="3"/>
+      <IndexingMode>NonIndexing</IndexingMode>
+      <InputTerminals>
+        <ITerminal TerminalId="4" TerminalIndex="1">
+          <IDataType>
+            <ISignedInt>
+              <WordLength>32</WordLength>
+            </ISignedInt>
+          </IDataType>
+          <Connections>
+            <Connection TerminalId="14" NodeId="11"/>
+          </Connections>
+        </ITerminal>
+      </InputTerminals>
+      <OutputTerminals>
+        <ITerminal TerminalId="3" TerminalIndex="0">
+          <IDataType>
+            <ISignedInt>
+              <WordLength>32</WordLength>
+            </ISignedInt>
+          </IDataType>
+          <Connections>
+            <Connection TerminalId="34" NodeId="24"/>
+          </Connections>
+        </ITerminal>
+      </OutputTerminals>
+    </ITunnel>
+    <ITunnel NodeId="7" ParentId="2">
+      <IsInput>False</IsInput>
+      <GetInnerTerminal TerminalId="6"/>
+      <GetOuterTerminal TerminalId="5"/>
+      <IndexingMode>NonIndexing</IndexingMode>
+      <InputTerminals>
+        <ITerminal TerminalId="6" TerminalIndex="1">
+          <IDataType>
+            <ISignedInt>
+              <WordLength>32</WordLength>
+            </ISignedInt>
+          </IDataType>
+          <Connections>
+            <Connection TerminalId="22" NodeId="17"/>
+          </Connections>
+        </ITerminal>
+      </InputTerminals>
+      <OutputTerminals>
+        <ITerminal TerminalId="5" TerminalIndex="0">
+          <IDataType>
+            <ISignedInt>
+              <WordLength>32</WordLength>
+            </ISignedInt>
+          </IDataType>
+          <Connections>
+            <Connection TerminalId="35" NodeId="25"/>
+          </Connections>
+        </ITerminal>
+      </OutputTerminals>
+    </ITunnel>
+    <ILeftShiftRegister NodeId="8" ParentId="2">
+      <AssociatedRightShiftRegister NodeId="9" ParentId="2"/>
+      <InputTerminals>
+        <ITerminal TerminalId="7" TerminalIndex="0">
+          <IDataType>
+            <ISignedInt>
+              <WordLength>32</WordLength>
+            </ISignedInt>
+          </IDataType>
+          <Connections>
+            <Connection TerminalId="31" NodeId="21"/>
+          </Connections>
+        </ITerminal>
+      </InputTerminals>
+      <OutputTerminals>
+        <ITerminal TerminalId="8" TerminalIndex="1">
+          <IDataType>
+            <ISignedInt>
+              <WordLength>32</WordLength>
+            </ISignedInt>
+          </IDataType>
+          <Connections>
+            <Connection TerminalId="30" NodeId="20"/>
+          </Connections>
+        </ITerminal>
+      </OutputTerminals>
+    </ILeftShiftRegister>
+    <IRightShiftRegister NodeId="9" ParentId="2">
+      <AssociatedLeftShiftRegister NodeId="8" ParentId="2"/>
+      <InputTerminals>
+        <ITerminal TerminalId="10" TerminalIndex="1">
+          <IDataType>
+            <ISignedInt>
+              <WordLength>32</WordLength>
+            </ISignedInt>
+          </IDataType>
+          <Connections>
+            <Connection TerminalId="28" NodeId="20"/>
+          </Connections>
+        </ITerminal>
+      </InputTerminals>
+      <OutputTerminals>
+        <ITerminal TerminalId="9" TerminalIndex="0">
+          <IDataType>
+            <ISignedInt>
+              <WordLength>32</WordLength>
+            </ISignedInt>
+          </IDataType>
+          <Connections>
+            <Connection TerminalId="33" NodeId="23"/>
+          </Connections>
+        </ITerminal>
+      </OutputTerminals>
+    </IRightShiftRegister>
+    <IDiagram NodeId="3" ParentId="2" DiagramIndex="0">
+      <IConstant NodeId="19" ParentId="3">
+        <Value>0</Value>
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <OutputTerminals>
+          <ITerminal TerminalId="27" TerminalIndex="0">
+            <IDataType>
+              <ISignedInt>
+                <WordLength>32</WordLength>
+              </ISignedInt>
+            </IDataType>
+            <Connections>
+              <Connection TerminalId="20" NodeId="16"/>
+            </Connections>
+          </ITerminal>
+        </OutputTerminals>
+      </IConstant>
+      <IForLoop NodeId="12" ParentId="3">
+        <ILoopIndex NodeId="14" ParentId="12">
+          <OutputTerminals>
+            <ITerminal TerminalId="17" TerminalIndex="0">
+              <IDataType>
+                <ISignedInt>
+                  <WordLength>32</WordLength>
+                </ISignedInt>
+              </IDataType>
+              <Connections>
+                <Connection TerminalId="26" NodeId="18"/>
+              </Connections>
+            </ITerminal>
+          </OutputTerminals>
+        </ILoopIndex>
+        <ILoopMax NodeId="15" ParentId="12">
+          <InputTerminals>
+            <ITerminal TerminalId="18" TerminalIndex="0">
+              <IDataType>
+                <ISignedInt>
+                  <WordLength>32</WordLength>
+                </ISignedInt>
+              </IDataType>
+              <Connections>
+                <Connection TerminalId="2" NodeId="5"/>
+              </Connections>
+            </ITerminal>
+          </InputTerminals>
+          <OutputTerminals>
+            <ITerminal TerminalId="19" TerminalIndex="1">
+              <IDataType>
+                <ISignedInt>
+                  <WordLength>32</WordLength>
+                </ISignedInt>
+              </IDataType>
+              <Connections/>
+            </ITerminal>
+          </OutputTerminals>
+        </ILoopMax>
+        <ILeftShiftRegister NodeId="16" ParentId="12">
+          <AssociatedRightShiftRegister NodeId="17" ParentId="12"/>
+          <InputTerminals>
+            <ITerminal TerminalId="20" TerminalIndex="0">
+              <IDataType>
+                <ISignedInt>
+                  <WordLength>32</WordLength>
+                </ISignedInt>
+              </IDataType>
+              <Connections>
+                <Connection TerminalId="27" NodeId="19"/>
+              </Connections>
+            </ITerminal>
+          </InputTerminals>
+          <OutputTerminals>
+            <ITerminal TerminalId="21" TerminalIndex="1">
+              <IDataType>
+                <ISignedInt>
+                  <WordLength>32</WordLength>
+                </ISignedInt>
+              </IDataType>
+              <Connections>
+                <Connection TerminalId="25" NodeId="18"/>
+              </Connections>
+            </ITerminal>
+          </OutputTerminals>
+        </ILeftShiftRegister>
+        <IRightShiftRegister NodeId="17" ParentId="12">
+          <AssociatedLeftShiftRegister NodeId="16" ParentId="12"/>
+          <InputTerminals>
+            <ITerminal TerminalId="23" TerminalIndex="1">
+              <IDataType>
+                <ISignedInt>
+                  <WordLength>32</WordLength>
+                </ISignedInt>
+              </IDataType>
+              <Connections>
+                <Connection TerminalId="24" NodeId="18"/>
+              </Connections>
+            </ITerminal>
+          </InputTerminals>
+          <OutputTerminals>
+            <ITerminal TerminalId="22" TerminalIndex="0">
+              <IDataType>
+                <ISignedInt>
+                  <WordLength>32</WordLength>
+                </ISignedInt>
+              </IDataType>
+              <Connections>
+                <Connection TerminalId="6" NodeId="7"/>
+                <Connection TerminalId="15" NodeId="11"/>
+                <Connection TerminalId="29" NodeId="20"/>
+              </Connections>
+            </ITerminal>
+          </OutputTerminals>
+        </IRightShiftRegister>
+        <IDiagram NodeId="13" ParentId="12" DiagramIndex="0">
+          <ICompoundArithmeticNode NodeId="18" ParentId="13" Mode="Add">
+            <InvertedInputs>
+              <InvertedInput>False</InvertedInput>
+              <InvertedInput>False</InvertedInput>
+            </InvertedInputs>
+            <InvertedOutput>False</InvertedOutput>
+            <InputTerminals>
+              <ITerminal TerminalId="25" TerminalIndex="1">
+                <IDataType>
+                  <ISignedInt>
+                    <WordLength>32</WordLength>
+                  </ISignedInt>
+                </IDataType>
+                <Connections>
+                  <Connection TerminalId="21" NodeId="16"/>
+                </Connections>
+              </ITerminal>
+              <ITerminal TerminalId="26" TerminalIndex="2">
+                <IDataType>
+                  <ISignedInt>
+                    <WordLength>32</WordLength>
+                  </ISignedInt>
+                </IDataType>
+                <Connections>
+                  <Connection TerminalId="17" NodeId="14"/>
+                </Connections>
+              </ITerminal>
+            </InputTerminals>
+            <OutputTerminals>
+              <ITerminal TerminalId="24" TerminalIndex="0">
+                <IDataType>
+                  <ISignedInt>
+                    <WordLength>32</WordLength>
+                  </ISignedInt>
+                </IDataType>
+                <Connections>
+                  <Connection TerminalId="23" NodeId="17"/>
+                </Connections>
+              </ITerminal>
+            </OutputTerminals>
+          </ICompoundArithmeticNode>
+        </IDiagram>
+      </IForLoop>
+      <ICompoundArithmeticNode NodeId="20" ParentId="3" Mode="Add">
+        <InvertedInputs>
+          <InvertedInput>False</InvertedInput>
+          <InvertedInput>False</InvertedInput>
+        </InvertedInputs>
+        <InvertedOutput>False</InvertedOutput>
+        <InputTerminals>
+          <ITerminal TerminalId="29" TerminalIndex="1">
+            <IDataType>
+              <ISignedInt>
+                <WordLength>32</WordLength>
+              </ISignedInt>
+            </IDataType>
+            <Connections>
+              <Connection TerminalId="22" NodeId="17"/>
+            </Connections>
+          </ITerminal>
+          <ITerminal TerminalId="30" TerminalIndex="2">
+            <IDataType>
+              <ISignedInt>
+                <WordLength>32</WordLength>
+              </ISignedInt>
+            </IDataType>
+            <Connections>
+              <Connection TerminalId="8" NodeId="8"/>
+            </Connections>
+          </ITerminal>
+        </InputTerminals>
+        <OutputTerminals>
+          <ITerminal TerminalId="28" TerminalIndex="0">
+            <IDataType>
+              <ISignedInt>
+                <WordLength>32</WordLength>
+              </ISignedInt>
+            </IDataType>
+            <Connections>
+              <Connection TerminalId="10" NodeId="9"/>
+            </Connections>
+          </ITerminal>
+        </OutputTerminals>
+      </ICompoundArithmeticNode>
+      <IFeedbackOutputNode NodeId="42" ParentId="3">
+        <InitTerminal TerminalId="71"/>
+        <InputNode NodeId="41" ParentId="3"/>
+        <InputTerminals>
+          <ITerminal TerminalId="71" TerminalIndex="1">
+            <IDataType>
+              <ISignedInt>
+                <WordLength>32</WordLength>
+              </ISignedInt>
+            </IDataType>
+            <Connections/>
+          </ITerminal>
+        </InputTerminals>
+        <OutputTerminals>
+          <ITerminal TerminalId="70" TerminalIndex="0">
+            <IDataType>
+              <ISignedInt>
+                <WordLength>32</WordLength>
+              </ISignedInt>
+            </IDataType>
+            <Connections>
+              <Connection TerminalId="16" NodeId="11"/>
+            </Connections>
+          </ITerminal>
+        </OutputTerminals>
+      </IFeedbackOutputNode>
+      <ICompoundArithmeticNode NodeId="11" ParentId="3" Mode="Add">
+        <InvertedInputs>
+          <InvertedInput>False</InvertedInput>
+          <InvertedInput>False</InvertedInput>
+        </InvertedInputs>
+        <InvertedOutput>False</InvertedOutput>
+        <InputTerminals>
+          <ITerminal TerminalId="15" TerminalIndex="1">
+            <IDataType>
+              <ISignedInt>
+                <WordLength>32</WordLength>
+              </ISignedInt>
+            </IDataType>
+            <Connections>
+              <Connection TerminalId="22" NodeId="17"/>
+            </Connections>
+          </ITerminal>
+          <ITerminal TerminalId="16" TerminalIndex="2">
+            <IDataType>
+              <ISignedInt>
+                <WordLength>32</WordLength>
+              </ISignedInt>
+            </IDataType>
+            <Connections>
+              <Connection TerminalId="70" NodeId="42"/>
+            </Connections>
+          </ITerminal>
+        </InputTerminals>
+        <OutputTerminals>
+          <ITerminal TerminalId="14" TerminalIndex="0">
+            <IDataType>
+              <ISignedInt>
+                <WordLength>32</WordLength>
+              </ISignedInt>
+            </IDataType>
+            <Connections>
+              <Connection TerminalId="4" NodeId="6"/>
+              <Connection TerminalId="69" NodeId="41"/>
+            </Connections>
+          </ITerminal>
+        </OutputTerminals>
+      </ICompoundArithmeticNode>
+      <IFeedbackInputNode NodeId="41" ParentId="3">
+        <Delay>1</Delay>
+        <FeedbackTerminal TerminalId="69"/>
+        <OutputNode NodeId="42" ParentId="3"/>
+        <InputTerminals>
+          <ITerminal TerminalId="69" TerminalIndex="0">
+            <IDataType>
+              <ISignedInt>
+                <WordLength>32</WordLength>
+              </ISignedInt>
+            </IDataType>
+            <Connections>
+              <Connection TerminalId="14" NodeId="11"/>
+            </Connections>
+          </ITerminal>
+        </InputTerminals>
+      </IFeedbackInputNode>
+    </IDiagram>
+  </IForLoop>
+  <IDataAccessor NodeId="23" ParentId="1">
+    <Name>y_3</Name>
+    <Direction>OUTPUT</Direction>
+    <InputTerminals>
+      <ITerminal TerminalId="33" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="9" NodeId="9"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+  </IDataAccessor>
+  <IDataAccessor NodeId="25" ParentId="1">
+    <Name>y</Name>
+    <Direction>OUTPUT</Direction>
+    <InputTerminals>
+      <ITerminal TerminalId="35" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="5" NodeId="7"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+  </IDataAccessor>
+  <IDataAccessor NodeId="24" ParentId="1">
+    <Name>y_2</Name>
+    <Direction>OUTPUT</Direction>
+    <InputTerminals>
+      <ITerminal TerminalId="34" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="3" NodeId="6"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+  </IDataAccessor>
+</IDiagram>

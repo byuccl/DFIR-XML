@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+<xs:complexType name="ElementType">
+	<xs:sequence>
+		<xs:element name="IDataType" type="IDataTypeType"/>
+	</xs:sequence>	
+</xs:complexType>                                              
+
+<xs:complexType name="ISignedIntType">
+	<xs:sequence>
+		<xs:element type="xs:byte" name="WordLength"/>
+	</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="IUnsignedIntType">	
+	<xs:sequence>
+		<xs:element type="xs:byte" name="WordLength"/>
+	</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="ISignedFixedPointType">
+	<xs:sequence>
+		<xs:element type="xs:byte" name="LeftLength"/>
+		<xs:element type="xs:byte" name="RightLength"/>
+	</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="IUnsignedFixedPointType">
+	<xs:sequence>
+		<xs:element type="xs:byte" name="LeftLength"/>
+		<xs:element type="xs:byte" name="RightLength"/>
+	</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="IArrayType">
+	<xs:sequence>
+		<xs:element type="xs:byte" name="Dimensions"/>
+		<xs:element name="Element" type="ElementType"/>
+	</xs:sequence>
+</xs:complexType>
+
+
+
+<xs:complexType name="IVariableSizedArrayType">
+	<xs:sequence>
+		<xs:element type="xs:byte" name="Dimensions"/>
+		<xs:element name="Element" type="ElementType"/>
+	</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="IComplexType">
+	<xs:sequence>
+		<xs:element name="Element" type="ElementType"/>
+	</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="IFixedSizeArrayType">
+	<xs:sequence>
+		<xs:element type="xs:byte" name="Dimensions"/>
+		<xs:element type="xs:byte" name="ArraySize"/>
+		<xs:element name="Element" type="ElementType"/>
+	</xs:sequence>
+</xs:complexType>
+ 
+
+<xs:complexType name="IDataTypeType">
+	<xs:choice>
+		<xs:element name="ISignedInt" type="ISignedIntType"/>
+		<xs:element name="IUnsignedInt" type="IUnsignedIntType"/>
+		<xs:element name="ISignedFixedPoint" type="ISignedFixedPointType"/>
+		<xs:element name="IUnsignedFixedPoint" type="IUnsignedFixedPointType"/>
+		<xs:element name="IArray" type="IArrayType"/>
+		<xs:element name="IVariableSizedArray" type="IVariableSizedArrayType"/>
+		<xs:element name="IComplex" type="IComplexType"/>
+		<xs:element name="IFixedSizeArray" type="IFixedSizeArrayType"/>
+		<xs:element name="IBit"/>
+		<xs:element name="IBoolean"/>
+		<xs:element name="IDouble"/>
+		<xs:element name="IIncorrect" />
+		<xs:element name="ISingle" />
+		<xs:element name="IString" />
+		<xs:element name="IUnknown" />
+		<xs:element name="IUnsupported" />
+		<xs:element name="IVoid"/>
+	</xs:choice>
+</xs:complexType>
+ 
+
+<xs:complexType name="ConnectionType">
+	<xs:simpleContent>
+		<xs:extension base="xs:string">
+			<xs:attribute type="xs:byte" name="TerminalId" use="required"/>
+			<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+		</xs:extension>
+	</xs:simpleContent>
+</xs:complexType>
+ 
+
+<xs:complexType name="ConnectionsType">
+	<xs:sequence>
+		<xs:element name="Connection" type="ConnectionType" minOccurs="0" maxOccurs="unbounded"/>
+	</xs:sequence>
+</xs:complexType>
+ 
+
+<xs:complexType name="ITerminalType">	 
+	<xs:sequence>
+		<xs:element name="IDataType" type="IDataTypeType"/>
+		<xs:element name="Connections"  type="ConnectionsType"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="TerminalId" use="required"/>
+	<xs:attribute type="xs:byte" name="TerminalIndex" use="required"/>
+</xs:complexType>
+  
+ 
+<xs:complexType name="InputTerminalsType">
+	<xs:sequence>
+		<xs:element name="ITerminal" type="ITerminalType" maxOccurs="unbounded"/>
+	</xs:sequence>
+</xs:complexType>
+ 
+ 
+<xs:complexType name="OutputTerminalsType">
+	<xs:sequence>
+		<xs:element name="ITerminal" type="ITerminalType" maxOccurs="unbounded"/>
+	</xs:sequence>
+</xs:complexType>
+ 
+
+<xs:complexType name="IDataAccessorType">
+	<xs:sequence>
+		<xs:element type="xs:string" name="Name"/>
+		<xs:element type="direction" name="Direction"/>
+		<xs:choice minOccurs="0">
+			<xs:element name="InputTerminals" type="InputTerminalsType"/>
+			<xs:element name="OutputTerminals" type="OutputTerminalsType"/>
+		</xs:choice>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+ 
+
+<xs:simpleType name="direction">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="INPUT|OUTPUT"/>
+	</xs:restriction>
+</xs:simpleType>
+
+
+<xs:complexType name="RangeType" >
+	<xs:choice>
+		<xs:sequence>
+			<xs:element type="xs:byte" name="LowValue" />
+			<xs:element type="xs:byte" name="HighValue" />
+		</xs:sequence>	
+		<xs:element type="xs:byte" name="SingleValue"/>	
+	</xs:choice>
+	<xs:attribute type="xs:byte" name="DiagramIndex" use="required"/>
+</xs:complexType>
+ 
+
+<xs:complexType name="RangesType">
+	<xs:sequence>
+		<xs:element name="Range" type="RangeType" maxOccurs="unbounded" minOccurs="0"/>
+	</xs:sequence>
+</xs:complexType>
+ 
+
+<xs:complexType name="ICaseSelectorType">
+	<xs:sequence>
+		<xs:element name="DefaultDiagramIndex">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute type="xs:byte" name="DiagramIndex"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="Ranges"  type="RangesType"/>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+ 
+
+<xs:complexType name="ITunnelType">
+	<xs:sequence>
+		<xs:element type="xs:string" name="IsInput"/>
+		<xs:element name="GetInnerTerminal">
+			<xs:complexType>
+				<xs:attribute type="xs:byte" name="TerminalId"/>
+			</xs:complexType>
+		</xs:element>
+		<xs:element name="GetOuterTerminal">
+			<xs:complexType>
+				<xs:attribute type="xs:byte" name="TerminalId"/>
+			</xs:complexType>
+		</xs:element>
+		<xs:element type="IndexingModeType" name="IndexingMode"/>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+
+<xs:simpleType name="IndexingModeType">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="NonIndexing|Indexing"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="ICaseStructureType">
+	<xs:sequence>
+		<xs:element name="ICaseSelector" type="ICaseSelectorType"/>
+		<xs:element name="ITunnel" type="ITunnelType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element ref="IDiagram" maxOccurs="unbounded" minOccurs="0"/>			
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+ 
+
+<xs:complexType name="IConstantType">
+	<xs:sequence>
+		<xs:element type="xs:string" name="Value"/>
+		<xs:element name="IDataType" type="IDataTypeType"/>              
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+ 
+
+<xs:complexType name="IBlackBoxNodeType">
+	 <xs:sequence>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+ 
+
+<xs:complexType name="PairType">
+	 <xs:simpleContent>
+		<xs:extension base="xs:string">
+			<xs:attribute type="xs:byte" name="TerminalId" use="required"/>
+			<xs:attribute type="xs:byte" name="SubVIDataAccessorId" use="required"/>
+		</xs:extension>
+	</xs:simpleContent>
+</xs:complexType>
+ 
+
+<xs:complexType name="SubVIType">
+	<xs:sequence>
+		<xs:element name="Pair" type="PairType" maxOccurs="unbounded" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+ 
+
+<xs:complexType name="IMethodCallType">
+	<xs:sequence>
+		<xs:element type="xs:string" name="TargetName"/>
+		<xs:element name="SubVI" type="SubVIType"/>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+ 
+
+<xs:complexType name="InitTerminalType">
+	<xs:simpleContent>
+		<xs:extension base="xs:string">
+			<xs:attribute type="xs:byte" name="TerminalId" use="required"/>
+		</xs:extension>
+	</xs:simpleContent>
+</xs:complexType>
+ 
+
+<xs:complexType name="InputNodeType">
+	<xs:simpleContent>
+		<xs:extension base="xs:string">
+			<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+			<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+		</xs:extension>
+	</xs:simpleContent>
+</xs:complexType>
+
+
+<xs:complexType name="OutputNodeType">
+	<xs:simpleContent>
+		<xs:extension base="xs:string">
+			<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+			<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+		</xs:extension>
+	</xs:simpleContent>
+</xs:complexType>
+
+
+<xs:complexType name="IFeedbackOutputNodeType">
+	<xs:sequence>
+		<xs:element name="InitTerminal" type="InitTerminalType"/>
+		<xs:element name="InputNode" type="InputNodeType"/>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+ 
+
+
+<xs:complexType name="FeedbackTerminalType">
+	<xs:simpleContent>
+		<xs:extension base="xs:string">
+			<xs:attribute type="xs:byte" name="TerminalId"/>
+		</xs:extension>
+	</xs:simpleContent>
+</xs:complexType>
+
+
+<xs:complexType name="IFeedbackInputNodeType">
+	<xs:sequence>
+		<xs:element type="xs:byte" name="Delay"/>
+		<xs:element name="FeedbackTerminal" type="FeedbackTerminalType" minOccurs="0"/>
+		<xs:element name="OutputNode" type="OutputNodeType"/>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="ICompoundArithmeticNodeType">
+	<xs:sequence>
+	    <xs:element name="InvertedInputs" type="InvertedInputsType"/>
+		<xs:element name="InvertedOutput" type="xs:string"/>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+	<xs:attribute type="compoundMode" name="Mode" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="InvertedInputsType">
+	<xs:sequence>
+		<xs:element name="InvertedInput" type="xs:string" maxOccurs="unbounded"/>
+	</xs:sequence>
+</xs:complexType>
+ 
+
+<xs:simpleType name="compoundMode">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="Add|Multiply|Or|And|Xor"/>
+    </xs:restriction>
+</xs:simpleType>
+
+
+<xs:complexType name="IRightShiftRegisterType">	 
+	<xs:sequence>
+		<xs:element name="AssociatedLeftShiftRegister">
+			<xs:complexType>
+				<xs:simpleContent>
+					<xs:extension base="xs:string">
+						<xs:attribute type="xs:byte" name="NodeId"/>
+						<xs:attribute type="xs:byte" name="ParentId"/>
+					</xs:extension>
+                   </xs:simpleContent>
+               </xs:complexType>
+		</xs:element>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+	<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+ 
+
+<xs:complexType name="ILeftShiftRegisterType">
+	<xs:sequence>
+		<xs:element name="AssociatedRightShiftRegister">
+			<xs:complexType>
+				<xs:simpleContent>
+					<xs:extension base="xs:string">
+						<xs:attribute type="xs:byte" name="NodeId"/>
+						<xs:attribute type="xs:byte" name="ParentId"/>
+					</xs:extension>
+				</xs:simpleContent>
+			</xs:complexType>
+		</xs:element>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+ 
+
+<xs:group name="shiftRegister">
+	<xs:sequence>
+		<xs:element name="ILeftShiftRegister" type="ILeftShiftRegisterType"/>
+		<xs:element name="IRightShiftRegister" type="IRightShiftRegisterType"/>
+	</xs:sequence>	
+</xs:group>
+	
+<xs:complexType name="IForLoopType">
+	<xs:sequence>
+		<xs:element name="ILoopIndex" type="ILoopIndexType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="ILoopMax" type="ILoopMaxType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="ITunnel" type="ITunnelType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:group ref="shiftRegister" maxOccurs="unbounded" minOccurs="0"/>	
+		<xs:element ref="IDiagram"/> 
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+ 
+
+<xs:complexType name="IWhileLoopType">
+	<xs:sequence>
+		<xs:element name="ILoopCondition" type="ILoopConditionType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="ILoopIndex" type="ILoopIndexType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="ITunnel" type="ITunnelType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:group ref="shiftRegister" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element ref="IDiagram"/> 
+	</xs:sequence>
+		<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+		<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+ 
+
+<xs:complexType name="ILoopIndexType">
+	<xs:sequence>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+
+
+<xs:complexType name="ILoopMaxType">
+	<xs:sequence>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+
+
+<xs:complexType name="ILoopConditionType">
+	<xs:sequence>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+
+
+<xs:complexType name="IArrayIndexNodeType">
+	<xs:sequence>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="IReplaceArraySubsetNodeType">
+	<xs:sequence>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+
+
+<xs:complexType name="IInsertIntoArrayNodeType">
+	<xs:sequence>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+
+
+<xs:complexType name="IDeleteFromArrayNodeType">
+	<xs:sequence>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+
+
+<xs:complexType name="IInitializeArrayNodeType">
+	<xs:sequence>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+
+
+<xs:complexType name="IBuildArrayNodeType">
+	<xs:sequence>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>	
+</xs:complexType>
+
+
+<xs:complexType name="IArraySubsetNodeType">
+	<xs:sequence>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+</xs:complexType>
+
+
+<xs:complexType name="IPrimitiveType">
+	<xs:sequence>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+	<xs:attribute type="primitiveMode" name="Mode" use="required"/>
+</xs:complexType>
+
+<xs:simpleType name="primitiveMode">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="Ex[a-zA-Z0-9]+Primitive"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="INodeType">
+	<xs:sequence>
+		<xs:element name="InputTerminals" type="InputTerminalsType" minOccurs="0"/>
+		<xs:element name="OutputTerminals" type="OutputTerminalsType" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute type="xs:byte" name="NodeId" use="required"/>
+	<xs:attribute type="xs:byte" name="ParentId" use="required"/>
+	<xs:attribute type="xs:string" name="Mode" use="required"/>
+</xs:complexType>
+
+
+
+<xs:element name="IDiagram" type="IDiagramType"/>	
+
+ <xs:complexType name="IDiagramType">
+  <xs:choice maxOccurs="unbounded" minOccurs="0">
+		<xs:element name="INode" type="INodeType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="ICompoundArithmeticNode" type="ICompoundArithmeticNodeType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IDataAccessor" type="IDataAccessorType" maxOccurs="unbounded" minOccurs="0"/>			
+		<xs:element name="IConstant" type="IConstantType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IForLoop" type="IForLoopType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IWhileLoop" type="IWhileLoopType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="ICaseStructure" type="ICaseStructureType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IMethodCall" type="IMethodCallType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IPrimitive" type="IPrimitiveType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IFeedbackInputNode" type="IFeedbackInputNodeType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IFeedbackOutputNode" type="IFeedbackOutputNodeType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IBlackBoxNode" type="IBlackBoxNodeType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IArrayIndexNode" type="IArrayIndexNodeType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IReplaceArraySubsetNode" type="IReplaceArraySubsetNodeType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IInsertIntoArrayNode" type="IInsertIntoArrayNodeType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IDeleteFromArrayNode" type="IDeleteFromArrayNodeType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IInitializeArrayNode" type="IInitializeArrayNodeType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IBuildArrayNode" type="IBuildArrayNodeType" maxOccurs="unbounded" minOccurs="0"/>
+		<xs:element name="IArraySubsetNode" type="IArraySubsetNodeType" maxOccurs="unbounded" minOccurs="0"/>            
+  </xs:choice>
+        <xs:attribute type="xs:byte" name="NodeId"/>
+		<xs:attribute type="xs:byte" name="ParentId"/>
+		<xs:attribute type="xs:byte" name="DiagramIndex"/>
+ </xs:complexType>
+
+</xs:schema>

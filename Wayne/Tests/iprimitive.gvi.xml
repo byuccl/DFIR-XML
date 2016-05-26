@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IDiagram NodeId="1" ParentId="0" DiagramIndex="0">
+  <IDataAccessor NodeId="3" ParentId="1">
+    <Name>x</Name>
+    <Direction>INPUT</Direction>
+    <OutputTerminals>
+      <ITerminal TerminalId="2" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="1" NodeId="2"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IDataAccessor>
+  <IPrimitive NodeId="2" ParentId="1" Mode="ExIncrementPrimitive">
+    <InputTerminals>
+      <ITerminal TerminalId="1" TerminalIndex="1">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="2" NodeId="3"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="0" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="4" NodeId="4"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IPrimitive>
+  <IPrimitive NodeId="4" ParentId="1" Mode="ExDecrementPrimitive">
+    <InputTerminals>
+      <ITerminal TerminalId="4" TerminalIndex="1">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="0" NodeId="2"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="3" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="6" NodeId="5"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IPrimitive>
+  <IPrimitive NodeId="5" ParentId="1" Mode="ExAbsoluteValuePrimitive">
+    <InputTerminals>
+      <ITerminal TerminalId="6" TerminalIndex="1">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="3" NodeId="4"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="5" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="9" NodeId="7"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IPrimitive>
+  <IPrimitive NodeId="7" ParentId="1" Mode="ExSquarePrimitive">
+    <InputTerminals>
+      <ITerminal TerminalId="9" TerminalIndex="1">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="5" NodeId="5"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="8" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="7" NodeId="6"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IPrimitive>
+  <IDataAccessor NodeId="6" ParentId="1">
+    <Name>y</Name>
+    <Direction>OUTPUT</Direction>
+    <InputTerminals>
+      <ITerminal TerminalId="7" TerminalIndex="0">
+        <IDataType>
+          <ISignedInt>
+            <WordLength>32</WordLength>
+          </ISignedInt>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="8" NodeId="7"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+  </IDataAccessor>
+</IDiagram>

@@ -1,0 +1,30 @@
+
+
+Run the DFIR_XMLGeneratorApp Project:
+
+1. Open the BrentDFIRApp Project as administrator.
+If you cannot access DFIR normally, please follow the "Setup in Visual Studio to Build DFIR_XMLGeneratorApp.docx" or "Getting Started With DfirExport.pdf" to access the DFIR API.
+
+2. When everything is OK, you need right-click the XmlGenerator and set it as StartUp Project.
+And then you can run the project, it will generate the "XMLGenerator" button on your LabVIEW Communications' ribbon.
+Make sure your LabVIEW Communications is close when you run your project.
+
+3. When you click the "XMLGenerator" button, it will print the corresponding XML file of your VI design.
+
+
+
+Run the DFIR_Compiler Project:
+
+1. Open the DFIR_Compiler project normally.
+
+2. Open the "main.cs" file in the project, and change the xmlFileName into your generated XML file name.
+And also change the xmlFileName2, which is the copy of your current XML in different directory.
+
+3. Run the DFIR_Compiler project, and it will produce the corresponding .c file.
+
+4. You can compile the .c file to obtain the same result with VI in LabVIEW Communications.
+
+
+And for the detailed information about these two project, please look over the "Jiaxin Chen_The XML Generator and DFIR Compiler for LabVIEW Communications.docx" and the NI Document directory.
+
+Besides, if you want to open the "NI-DFIR-API-HELP.chw", please rename its suffix into "NI-DFIR-API-HELP.chm".

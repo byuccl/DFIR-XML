@@ -1,0 +1,31 @@
+package Dfir_representation;
+
+import java.util.Vector;
+
+public class IBorderNode extends JNode{
+	   
+	   
+	   public IBorderNode(int nodeId, int parentId, Vector<ITerminal> inputTerminals, Vector<ITerminal> outputTerminals){
+		   super(nodeId,parentId,inputTerminals,outputTerminals);
+		   
+		   JNodeType = "IBorderNode";
+	   }
+	   public Boolean isBorderNodeInsideLoop(IDiagram iDiagram){
+			return this.getParentId() == iDiagram.getParentId();
+	   }
+	   
+	  
+	   public void print(){
+		   System.out.println("IBorderNode begin");
+		   System.out.println("NodeId: " + this.nodeId + ' ' + "ParentId: " + this.parentId);
+		   for(int i=0; i<inputTerminals.size(); i++){
+				   inputTerminals.get(i).print();
+		   }
+		  for(int i=0; i<outputTerminals.size(); i++){
+				   outputTerminals.get(i).print();
+		   }   
+		  System.out.println("IBorderNode end\n");
+	   }
+	   
+}
+

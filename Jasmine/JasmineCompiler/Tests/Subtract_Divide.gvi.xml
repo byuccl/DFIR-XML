@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IDiagram NodeId="1" ParentId="0" DiagramIndex="0">
+  <IConstant NodeId="3" ParentId="1">
+    <Value>2.5</Value>
+    <IDataType>
+      <IUnsignedFixedPoint>
+        <LeftLength>2</LeftLength>
+        <RightLength>1</RightLength>
+      </IUnsignedFixedPoint>
+    </IDataType>
+    <OutputTerminals>
+      <ITerminal TerminalId="3" TerminalIndex="0">
+        <IDataType>
+          <IUnsignedFixedPoint>
+            <LeftLength>2</LeftLength>
+            <RightLength>1</RightLength>
+          </IUnsignedFixedPoint>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="1" NodeId="2"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IConstant>
+  <IDataAccessor NodeId="6" ParentId="1">
+    <Name>input_1</Name>
+    <Direction>INPUT</Direction>
+    <OutputTerminals>
+      <ITerminal TerminalId="8" TerminalIndex="0">
+        <IDataType>
+          <ISignedFixedPoint>
+            <LeftLength>38</LeftLength>
+            <RightLength>11</RightLength>
+          </ISignedFixedPoint>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="7" NodeId="5"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IDataAccessor>
+  <IDataAccessor NodeId="7" ParentId="1">
+    <Name>input_2</Name>
+    <Direction>INPUT</Direction>
+    <OutputTerminals>
+      <ITerminal TerminalId="9" TerminalIndex="0">
+        <IDataType>
+          <ISignedFixedPoint>
+            <LeftLength>38</LeftLength>
+            <RightLength>11</RightLength>
+          </ISignedFixedPoint>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="6" NodeId="5"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IDataAccessor>
+  <IPrimitive NodeId="5" ParentId="1" Mode="ExSubtractPrimitive">
+    <InputTerminals>
+      <ITerminal TerminalId="6" TerminalIndex="1">
+        <IDataType>
+          <ISignedFixedPoint>
+            <LeftLength>38</LeftLength>
+            <RightLength>11</RightLength>
+          </ISignedFixedPoint>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="9" NodeId="7"/>
+        </Connections>
+      </ITerminal>
+      <ITerminal TerminalId="7" TerminalIndex="2">
+        <IDataType>
+          <ISignedFixedPoint>
+            <LeftLength>38</LeftLength>
+            <RightLength>11</RightLength>
+          </ISignedFixedPoint>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="8" NodeId="6"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="5" TerminalIndex="0">
+        <IDataType>
+          <ISignedFixedPoint>
+            <LeftLength>39</LeftLength>
+            <RightLength>11</RightLength>
+          </ISignedFixedPoint>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="2" NodeId="2"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IPrimitive>
+  <IPrimitive NodeId="2" ParentId="1" Mode="ExDividePrimitive">
+    <InputTerminals>
+      <ITerminal TerminalId="1" TerminalIndex="1">
+        <IDataType>
+          <IUnsignedFixedPoint>
+            <LeftLength>2</LeftLength>
+            <RightLength>1</RightLength>
+          </IUnsignedFixedPoint>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="3" NodeId="3"/>
+        </Connections>
+      </ITerminal>
+      <ITerminal TerminalId="2" TerminalIndex="2">
+        <IDataType>
+          <ISignedFixedPoint>
+            <LeftLength>39</LeftLength>
+            <RightLength>11</RightLength>
+          </ISignedFixedPoint>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="5" NodeId="5"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="0" TerminalIndex="0">
+        <IDataType>
+          <ISignedFixedPoint>
+            <LeftLength>40</LeftLength>
+            <RightLength>13</RightLength>
+          </ISignedFixedPoint>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="4" NodeId="4"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IPrimitive>
+  <IDataAccessor NodeId="4" ParentId="1">
+    <Name>result</Name>
+    <Direction>OUTPUT</Direction>
+    <InputTerminals>
+      <ITerminal TerminalId="4" TerminalIndex="0">
+        <IDataType>
+          <ISignedFixedPoint>
+            <LeftLength>40</LeftLength>
+            <RightLength>13</RightLength>
+          </ISignedFixedPoint>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="0" NodeId="2"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+  </IDataAccessor>
+</IDiagram>

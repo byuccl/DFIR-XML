@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IDiagram NodeId="1" ParentId="0" DiagramIndex="0">
+  <IDataAccessor NodeId="3" ParentId="1">
+    <Name>x</Name>
+    <Direction>INPUT</Direction>
+    <OutputTerminals>
+      <ITerminal TerminalId="3" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="17" NodeId="11"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IDataAccessor>
+  <IConstant NodeId="4" ParentId="1">
+    <Value>2</Value>
+    <IDataType>
+      <IDouble/>
+    </IDataType>
+    <OutputTerminals>
+      <ITerminal TerminalId="4" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="16" NodeId="11"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IConstant>
+  <IPrimitive NodeId="11" ParentId="1" Mode="ExDividePrimitive">
+    <InputTerminals>
+      <ITerminal TerminalId="16" TerminalIndex="1">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="4" NodeId="4"/>
+        </Connections>
+      </ITerminal>
+      <ITerminal TerminalId="17" TerminalIndex="2">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="3" NodeId="3"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="15" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="1" NodeId="2"/>
+          <Connection TerminalId="35" NodeId="23"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IPrimitive>
+  <IDataAccessor NodeId="23" ParentId="1">
+    <Name>y</Name>
+    <Direction>OUTPUT</Direction>
+    <InputTerminals>
+      <ITerminal TerminalId="35" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="15" NodeId="11"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+  </IDataAccessor>
+  <IConstant NodeId="5" ParentId="1">
+    <Value>-5</Value>
+    <IDataType>
+      <IDouble/>
+    </IDataType>
+    <OutputTerminals>
+      <ITerminal TerminalId="5" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="14" NodeId="10"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IConstant>
+  <IConstant NodeId="8" ParentId="1">
+    <Value>-2</Value>
+    <IDataType>
+      <IDouble/>
+    </IDataType>
+    <OutputTerminals>
+      <ITerminal TerminalId="10" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="8" NodeId="7"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IConstant>
+  <IDataAccessor NodeId="9" ParentId="1">
+    <Name>x_2</Name>
+    <Direction>INPUT</Direction>
+    <OutputTerminals>
+      <ITerminal TerminalId="11" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="9" NodeId="7"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IDataAccessor>
+  <ICompoundArithmeticNode NodeId="7" ParentId="1" Mode="Multiply">
+    <InvertedInputs>
+      <InvertedInput>True</InvertedInput>
+      <InvertedInput>True</InvertedInput>
+    </InvertedInputs>
+    <InvertedOutput>True</InvertedOutput>
+    <InputTerminals>
+      <ITerminal TerminalId="8" TerminalIndex="1">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="10" NodeId="8"/>
+        </Connections>
+      </ITerminal>
+      <ITerminal TerminalId="9" TerminalIndex="2">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="11" NodeId="9"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="7" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="13" NodeId="10"/>
+          <Connection TerminalId="37" NodeId="24"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </ICompoundArithmeticNode>
+  <IPrimitive NodeId="10" ParentId="1" Mode="ExSubtractPrimitive">
+    <InputTerminals>
+      <ITerminal TerminalId="13" TerminalIndex="1">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="7" NodeId="7"/>
+        </Connections>
+      </ITerminal>
+      <ITerminal TerminalId="14" TerminalIndex="2">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="5" NodeId="5"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="12" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="2" NodeId="2"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IPrimitive>
+  <ICompoundArithmeticNode NodeId="2" ParentId="1" Mode="Add">
+    <InvertedInputs>
+      <InvertedInput>False</InvertedInput>
+      <InvertedInput>True</InvertedInput>
+    </InvertedInputs>
+    <InvertedOutput>True</InvertedOutput>
+    <InputTerminals>
+      <ITerminal TerminalId="1" TerminalIndex="1">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="15" NodeId="11"/>
+        </Connections>
+      </ITerminal>
+      <ITerminal TerminalId="2" TerminalIndex="2">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="12" NodeId="10"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="0" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="6" NodeId="6"/>
+          <Connection TerminalId="34" NodeId="22"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </ICompoundArithmeticNode>
+  <IDataAccessor NodeId="22" ParentId="1">
+    <Name>y_3</Name>
+    <Direction>OUTPUT</Direction>
+    <InputTerminals>
+      <ITerminal TerminalId="34" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="0" NodeId="2"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+  </IDataAccessor>
+  <IDataAccessor NodeId="6" ParentId="1">
+    <Name>y_2</Name>
+    <Direction>OUTPUT</Direction>
+    <InputTerminals>
+      <ITerminal TerminalId="6" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="0" NodeId="2"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+  </IDataAccessor>
+  <IConstant NodeId="13" ParentId="1">
+    <Value>-3</Value>
+    <IDataType>
+      <IDouble/>
+    </IDataType>
+    <OutputTerminals>
+      <ITerminal TerminalId="19" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="18" NodeId="12"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IConstant>
+  <IDataAccessor NodeId="12" ParentId="1">
+    <Name>y_5</Name>
+    <Direction>OUTPUT</Direction>
+    <InputTerminals>
+      <ITerminal TerminalId="18" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="19" NodeId="13"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+  </IDataAccessor>
+  <IConstant NodeId="16" ParentId="1">
+    <Value>1</Value>
+    <IDataType>
+      <IDouble/>
+    </IDataType>
+    <OutputTerminals>
+      <ITerminal TerminalId="26" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="22" NodeId="15"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IConstant>
+  <IConstant NodeId="17" ParentId="1">
+    <Value>-2</Value>
+    <IDataType>
+      <IDouble/>
+    </IDataType>
+    <OutputTerminals>
+      <ITerminal TerminalId="27" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="23" NodeId="15"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IConstant>
+  <IDataAccessor NodeId="18" ParentId="1">
+    <Name>x_3</Name>
+    <Direction>INPUT</Direction>
+    <OutputTerminals>
+      <ITerminal TerminalId="28" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="24" NodeId="15"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IDataAccessor>
+  <IConstant NodeId="20" ParentId="1">
+    <Value>3</Value>
+    <IDataType>
+      <IDouble/>
+    </IDataType>
+    <OutputTerminals>
+      <ITerminal TerminalId="32" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="31" NodeId="19"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IConstant>
+  <IDataAccessor NodeId="21" ParentId="1">
+    <Name>x_4</Name>
+    <Direction>INPUT</Direction>
+    <OutputTerminals>
+      <ITerminal TerminalId="33" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="30" NodeId="19"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IDataAccessor>
+  <IPrimitive NodeId="19" ParentId="1" Mode="ExDividePrimitive">
+    <InputTerminals>
+      <ITerminal TerminalId="30" TerminalIndex="1">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="33" NodeId="21"/>
+        </Connections>
+      </ITerminal>
+      <ITerminal TerminalId="31" TerminalIndex="2">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="32" NodeId="20"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="29" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="25" NodeId="15"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IPrimitive>
+  <ICompoundArithmeticNode NodeId="15" ParentId="1" Mode="Add">
+    <InvertedInputs>
+      <InvertedInput>False</InvertedInput>
+      <InvertedInput>False</InvertedInput>
+      <InvertedInput>False</InvertedInput>
+      <InvertedInput>False</InvertedInput>
+    </InvertedInputs>
+    <InvertedOutput>False</InvertedOutput>
+    <InputTerminals>
+      <ITerminal TerminalId="22" TerminalIndex="1">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="26" NodeId="16"/>
+        </Connections>
+      </ITerminal>
+      <ITerminal TerminalId="23" TerminalIndex="2">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="27" NodeId="17"/>
+        </Connections>
+      </ITerminal>
+      <ITerminal TerminalId="24" TerminalIndex="3">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="28" NodeId="18"/>
+        </Connections>
+      </ITerminal>
+      <ITerminal TerminalId="25" TerminalIndex="4">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="29" NodeId="19"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="21" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="20" NodeId="14"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </ICompoundArithmeticNode>
+  <IDataAccessor NodeId="14" ParentId="1">
+    <Name>y_6</Name>
+    <Direction>OUTPUT</Direction>
+    <InputTerminals>
+      <ITerminal TerminalId="20" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="21" NodeId="15"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+  </IDataAccessor>
+  <IConstant NodeId="25" ParentId="1">
+    <Value>6</Value>
+    <IDataType>
+      <IDouble/>
+    </IDataType>
+    <OutputTerminals>
+      <ITerminal TerminalId="39" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="38" NodeId="24"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </IConstant>
+  <ICompoundArithmeticNode NodeId="24" ParentId="1" Mode="Add">
+    <InvertedInputs>
+      <InvertedInput>False</InvertedInput>
+      <InvertedInput>True</InvertedInput>
+    </InvertedInputs>
+    <InvertedOutput>False</InvertedOutput>
+    <InputTerminals>
+      <ITerminal TerminalId="37" TerminalIndex="1">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="7" NodeId="7"/>
+        </Connections>
+      </ITerminal>
+      <ITerminal TerminalId="38" TerminalIndex="2">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="39" NodeId="25"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+    <OutputTerminals>
+      <ITerminal TerminalId="36" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="40" NodeId="26"/>
+        </Connections>
+      </ITerminal>
+    </OutputTerminals>
+  </ICompoundArithmeticNode>
+  <IDataAccessor NodeId="26" ParentId="1">
+    <Name>y_4</Name>
+    <Direction>OUTPUT</Direction>
+    <InputTerminals>
+      <ITerminal TerminalId="40" TerminalIndex="0">
+        <IDataType>
+          <IDouble/>
+        </IDataType>
+        <Connections>
+          <Connection TerminalId="36" NodeId="24"/>
+        </Connections>
+      </ITerminal>
+    </InputTerminals>
+  </IDataAccessor>
+</IDiagram>
