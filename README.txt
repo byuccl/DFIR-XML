@@ -7,8 +7,8 @@ The main component located here is source code for a DFIR export tool
 which is able to access the NI-internal data structure (DFIR) and
 output an equivalent XML file.
 
-In order to use this tool, you should contact National Instruments as
-they provide a number of the required pieces:
+In order to use this tool, you should contact National Instruments at 
+DFIR.Export@ni.com as they provide a number of the required pieces:
 
 - Documentation in the form of a getting started guide and
   documentation on the DFIR data structure.  These will be very
